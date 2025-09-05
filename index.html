@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avon Weld System - Professional Welding Services</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .poster {
+        width: 1100px;
+        background: white;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Header Section */
+      .header {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 30px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .header-text h1 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header-text p {
+        font-size: 19px;
+        opacity: 0.9;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .quality-badge {
+        background: linear-gradient(135deg, #006851 0%, #006851 100%);
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 17px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .logo-icon{
+        background-color: white;
+        border-radius: 50%;
+        height: 56px;
+        width: 56px;
+      }
+
+      /* Combined Projects and Services Section */
+      .combined-section {
+        padding: 45px 40px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 31px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 35px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        margin: 15px auto 0;
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 60px;
+      }
+
+      .project-card {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(255, 255, 255, 0.7) 100%
+        );
+        border-radius: 15px;
+        padding: 25px 15px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .project-icon {
+        margin: 0 auto 18px;
+        border-radius: 12px;
+        justify-content: center;
+      }
+
+      .project-card h3 {
+        font-size: 18px;
+        color: #2c3e50;
+        font-weight: 600;
+        line-height: 1.3;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Services Grid */
+      .services-grid {
+        display: flex;
+        gap: 25px;
+      }
+
+      .service-card {
+        flex: 1;
+        padding: 30px 22px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-card:nth-child(1) {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.15) 0%,
+          rgba(118, 75, 162, 0.15) 100%
+        );
+      }
+
+      .service-card:nth-child(2) {
+        background: linear-gradient(
+          135deg,
+          rgba(79, 172, 254, 0.15) 0%,
+          rgba(0, 242, 254, 0.15) 100%
+        );
+      }
+
+      .service-card:nth-child(3) {
+        background: linear-gradient(
+          135deg,
+          rgba(250, 112, 154, 0.15) 0%,
+          rgba(254, 225, 64, 0.15) 100%
+        );
+      }
+
+      .service-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 22px;
+      }
+
+      .service-card h3 {
+        font-size: 21px;
+        color: #2c3e50;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      .service-list {
+        list-style: none;
+      }
+
+      .service-list li {
+        padding: 6px 0;
+        color: #444;
+        font-size: 18px;
+        position: relative;
+        padding-left: 18px;
+      }
+
+      .service-list li::before {
+        content: "●";
+        position: absolute;
+        left: 0;
+        color: #ff6b35;
+        font-size: 15px;
+        top: 10px;
+      }
+
+      /* Bottom Section */
+      .bottom-section {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+      }
+
+      .quality-section {
+        padding: 35px 40px;
+        text-align: center;
+      }
+
+      .quality-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 18px;
+        font-size: 35px;
+      }
+
+      .quality-title {
+        font-size: 29px;
+        font-weight: bold;
+        margin-bottom: 18px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .quality-features {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        font-size: 20px;
+      }
+
+      .quality-features span::before {
+        content: "✓";
+        margin-right: 6px;
+        font-weight: bold;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: linear-gradient(135deg, #006851 0%, #34495e 100%);
+        padding: 35px 40px;
+        text-align: center;
+      }
+
+      .contact-title {
+        font-size: 29px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-subtitle {
+        font-size: 19px;
+        margin-bottom: 28px;
+        opacity: 0.95;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-grid {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 25px;
+      }
+
+      .contact-item {
+        text-align: center;
+        flex: 1;
+      }
+
+      .contact-icon {
+        justify-content: center;
+        margin: 0 auto 12px;
+        font-size: 29px;
+      }
+
+      .contact-item h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-item p {
+        font-size: 16px;
+        line-height: 1.5;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .footer {
+        background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+        padding: 18px;
+        text-align: center;
+        font-size: 15px;
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="poster">
+      <!-- Header Section -->
+      <header class="header">
+        <div class="header-left">
+          <div class="logo-icon">
+            <img
+              src="saturn.png"
+              style="width: 48px; height: 48px; color: white"
+              alt=""
+            />
+          </div>
+          <div class="header-text">
+            <h1>AONE WELD SYSTEM</h1>
+            <p>Professional Welding & MS Fabrication Services</p>
+          </div>
+        </div>
+        <div class="quality-badge">EST. QUALITY WORK</div>
+      </header>
+
+      <!-- Combined Projects and Services Section -->
+      <section class="combined-section">
+        <!-- Recent Projects -->
+        <h2 class="section-title">RECENT COMPLETED PROJECTS</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-icon">
+              <img src="stairs.png" style="width: 35px; height: 35px" alt="" />
+            </div>
+            <h3>MS Staircases</h3>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">
+              <img
+                src="sliding-door.png"
+                style="width: 35px; height: 35px"
+                alt=""
+              />
+            </div>
+            <h3>Collapsible Gate</h3>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">
+              <img src="sign.png" style="width: 35px; height: 35px" alt="" />
+            </div>
+            <h3>Hoarding Board Structure</h3>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">
+              <img
+                src="exit-door.png"
+                style="width: 35px; height: 35px"
+                alt=""
+              />
+            </div>
+            <h3>Fire Door Exit</h3>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">
+              <img src="railing.png" style="width: 38px; height: 38px" alt="" />
+            </div>
+            <h3>Railings</h3>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <h2 class="section-title">OUR COMPREHENSIVE SERVICES</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">
+                <img
+                  src="appliance-repair.png"
+                  style="width: 38px; height: 38px"
+                  alt=""
+                />
+              </div>
+              <h3>Household &<br />Residential</h3>
+            </div>
+            <ul class="service-list">
+              <li>Staircases (spiral, straight, designer)</li>
+              <li>Railings (balcony, terrace, staircase)</li>
+              <li>Main gates (sliding, swing, decorative)</li>
+              <li>Doors & door frames</li>
+              <li>Window grills & safety grills</li>
+              <li>Boundary walls & fencing</li>
+              <li>Canopies & sheds</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">
+                <img
+                  src="office.png"
+                  style="width: 38px; height: 38px"
+                  alt=""
+                />
+              </div>
+              <h3>Commercial &<br />Industrial</h3>
+            </div>
+            <ul class="service-list">
+              <li>Shop shutters & rolling gates</li>
+              <li>Display boards & sign boards</li>
+              <li>Storage racks & shelves</li>
+              <li>Industrial platforms & walkways</li>
+              <li>Structural frames (warehouses, workshops)</li>
+              <li>Mezzanine floors</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">
+                <img src="iron.png" style="width: 38px; height: 38px" alt="" />
+              </div>
+              <h3>Decorative &<br />Custom</h3>
+            </div>
+            <ul class="service-list">
+              <li>Designer partitions & panels</li>
+              <li>Garden furniture (benches, tables, chairs)</li>
+              <li>Pergolas & gazebos</li>
+              <li>Art grills & decorative motifs</li>
+              <li>Handrails with patterns</li>
+              <li>And many more custom works</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quality & Contact Section -->
+      <section class="bottom-section">
+        <div class="quality-section">
+          <div class="quality-icon">
+            <img src="shield.png" style="width: 45px; height: 45px" alt="" />
+          </div>
+          <h2 class="quality-title">QUALITY GUARANTEE</h2>
+          <div class="quality-features">
+            <span>Professional Craftsmanship</span>
+            <span>Durable Materials</span>
+            <span>Timely Delivery</span>
+            <span>Competitive Pricing</span>
+          </div>
+        </div>
+
+        <div class="contact-section">
+          <h2 class="contact-title">GET IN TOUCH</h2>
+          <p class="contact-subtitle">
+            Ready to start your project? Contact us today!
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <img
+                  src="telephone.png"
+                  style="width: 37px; height: 37px"
+                  alt=""
+                />
+              </div>
+              <h3>CALL US</h3>
+              <p>+91 9892285213</p>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <img
+                  src="location.png"
+                  style="width: 37px; height: 37px"
+                  alt=""
+                />
+              </div>
+              <h3>VISIT US</h3>
+              <p>
+                Gala No.14 Gulshan Society, SainathWadi, Tilak Nagar<br />Sakinaka,
+                Mumbai-400072
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <img
+                  src="new-email.png"
+                  style="width: 37px; height: 37px"
+                  alt=""
+                />
+              </div>
+              <h3>EMAIL US</h3>
+              <p>firdousakhtar.fa@email.com<br /></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <p>© 2025 Aone Weld System - Your Trusted Welding Partner</p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
